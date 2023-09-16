@@ -2,7 +2,7 @@
 session_start();
 
 require __DIR__ . '/vendor/autoload.php';
-require_once 'utils/redirect.php';
+require_once 'utils/redirectMain.php';
 
 use \Jikan\Helper\Constants;
 use Jikan\MyAnimeList\MalClient;
@@ -25,15 +25,14 @@ $topAnime = $jikan->getTopAnime(
 
 // die;
 
-$page = [
-  'title' => 'Home',
-  'page' => 'view/top.php'
-];
+
+$v = isset($_GET['v']) ? $_GET['v'] : '';
+$page = redirect($v);
+
 ?>
 
 
 <!-- html -->
-
 <?php
 include 'components/head.php';
 include 'components/nav.php'
@@ -54,7 +53,7 @@ include 'components/nav.php'
             </h1>
           </a>
         </div>
-        <?php if ($index == 9) break ?>
+        <?php if ($index == 5) break ?>
       <?php endforeach; ?>
     </div>
     <!-- Slider controls -->

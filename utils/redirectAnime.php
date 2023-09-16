@@ -20,7 +20,19 @@ function redirect(string $url): array
         'title' => ' - Epsiodes'
       ];
       break;
-      default:
+    case 'stats':
+      return [
+        'page' => 'statistic.php',
+        'title' => ' - Statistic'
+      ];
+      break;
+    case 'pics':
+      return [
+        'page' => 'picture.php',
+        'title' => ' - Pictures'
+      ];
+      break;
+    default:
       return [
         'page' => 'details.php',
         'title' => ''

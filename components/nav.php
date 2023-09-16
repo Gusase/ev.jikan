@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 z-20 dark:border-gray-600 dark:bg-transparent">
   <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-    <a href="/index.php" class="flex items-center">
+    <a href="http://ev.jikan.eva/" class="flex items-center">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Jikan API</span>
     </a>
     <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-full" aria-expanded="false">
@@ -21,7 +21,7 @@
         </li>
     </div>
   </div>
-  <div id="mega-menu-full-dropdown" class="bg-white hidden border-gray-700 shadow-sm border-y dark:bg-[#121212]/50 backdrop-blur-sm absolute top-[64px] inset-x-0 z-20 shadow-lg">
+  <div id="mega-menu-full-dropdown" class="bg-white hidden z-30 border-gray-700 shadow-sm border-y dark:bg-[#121212]/50 backdrop-blur-sm absolute top-[64px] inset-x-0 z-20 shadow-lg">
     <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:grid-cols-3 md:gap-2 md:px-6">
       <ul aria-labelledby="mega-menu-full-dropdown-button">
         <li>
@@ -33,7 +33,7 @@
       </ul>
       <ul aria-labelledby="mega-menu-full-dropdown-button">
         <li>
-          <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 bg-[#161616]/70 duration-150 dark:hover:bg-[#121212]">
+          <a href="http://ev.jikan.eva/view\anime.php" class="block p-3 rounded-lg hover:bg-gray-50 bg-[#161616]/70 duration-150 dark:hover:bg-[#121212]">
             <div class="font-semibold">Anime Search</div>
             <span class="text-sm text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet..</span>
           </a>

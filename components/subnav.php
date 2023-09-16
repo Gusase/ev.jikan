@@ -18,5 +18,39 @@
     <li class="mr-2">
       <a href="?mal=<?= $anim->getMalId(); ?>&v=reviews" class="inline-block p-2 <?= (isset($active) && $active == 'reviews') ? 'text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-gray-100 dark:border-blue-500' : 'border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'; ?>">reviews</a>
     </li>
+    <li class="mr-2">
+      <a href="?mal=<?= $anim->getMalId(); ?>&v=pics" class="inline-block p-2 <?= (isset($active) && $active == 'pics') ? 'text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-gray-100 dark:border-blue-500' : 'border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'; ?>">Pictures</a>
+    </li>
   </ul>
 </div>
+
+<nav class="flex my-3">
+  <ol class="inline-flex items-center space-x-1 md:space-x-3">
+    <li class="inline-flex items-center">
+      <span class="inline-flex items-center text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">
+        Top
+      </span>
+    </li>
+    <li>
+      <div class="flex items-center">
+        >
+        <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">Anime</span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-center">
+        >
+        <span class="ml-2 text-sm font-medium text-gray-500 dark:text-sky-50 w-10/12 dark:hover:underline hover:underline-offset-2 cursor-pointer truncate"><?= $anim->getTitle() ?></span>
+      </div>
+    </li>
+    <?php if(!empty($page['title'])) :?>
+    <li>
+      <div class="flex items-center">
+        >
+        <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2"> <?= mb_substr($page['title'],2) ?> </span>
+      </div>
+    </li>
+    <?php endif; ?>
+    <li>
+  </ol>
+</nav>

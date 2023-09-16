@@ -13,34 +13,6 @@ $active = 'videos'; ?>
   <div class="flex flex-col container p-10 items-center md:flex-row w-full mt-3">
     <div class="grow flex flex-col w-full md:w-auto justify-between leading-normal self-start">
       <?php include_once '../../components/subnav.php' ?>
-      <nav class="flex my-3">
-        <ol class="inline-flex items-center space-x-1 md:space-x-3">
-          <li class="inline-flex items-center">
-            <span class="inline-flex items-center text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">
-              Top
-            </span>
-          </li>
-          <li>
-            <div class="flex items-center">
-              >
-              <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">Anime</span>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center">
-              >
-              <span class="ml-2 text-sm font-medium text-gray-500 dark:text-sky-50 w-10/12 dark:hover:underline hover:underline-offset-2 cursor-pointer truncate"><?= $anim->getTitle() ?></span>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center">
-              >
-              <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2"> Videos </span>
-            </div>
-          </li>
-          <li>
-        </ol>
-      </nav>
       <div>
         <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">episodes</h4>
         <?php if (count($videos->getEpisodes()) > 0)  : ?>

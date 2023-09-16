@@ -26,31 +26,31 @@
         <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Episodes</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getEpisodes() ?>
+              <?= $anim->getEpisodes() ?? 'N/A'?>
             </p>
           </div>
         <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Status</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getStatus() ?>
+              <?= $anim->getStatus() ?? 'N/A'?>
             </p>
           </div>
         <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Aired</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getAired() ?>
+              <?= $anim->getAired() ?? 'N/A'?>
             </p>
           </div>
         <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Premiered</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getPremiered() ?>
+              <?= $anim->getPremiered() ?? 'N/A'?>
             </p>
           </div>
         <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Broadcast</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getBroadcast() ?>
+              <?= $anim->getBroadcast() ?? 'N/A'?>
             </p>
           </div>
         <div class="mb-3">

@@ -20,7 +20,7 @@
         <div class="mb-3">
           <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Score</h4>
           <p class="text-gray-500 dark:text-gray-400">
-            <?= $anim->getScore(); ?> <small>(scored by <?= number_format($anim->getScoredBy()) ?> users)</small>
+            <?= $anim->getScore(); ?> <small>(scored by <?= (!is_null($anim->getScoredBy())) ? number_format($anim->getScoredBy()) : '-'; ?> users)</small>
           </p>
         </div>
         <div class="mb-3">

@@ -3,28 +3,10 @@
       <div class="flex flex-col container p-10 items-center md:flex-row w-full mt-3">
         <div class="grow flex flex-col justify-between leading-normal self-start">
           <?php include_once '../../components/subnav.php' ?>
-          <nav class="flex my-3">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-              <li class="inline-flex items-center">
-                <a href="#" class="inline-flex items-center text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">
-                  Top
-                </a>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  >
-                  <a href="#" class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">Anime</a>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  >
-                  <span class="ml-2 text-sm font-medium text-gray-500 dark:text-sky-50 w-10/12 dark:hover:underline hover:underline-offset-2 cursor-pointer truncate"><?= $anim->getTitle() ?></span>
-                </div>
-              </li>
-            </ol>
-          </nav>
           <div class="flex space-x-3">
+            <div class="w-[225px]">
+              <img src="<?= $anim->getImages()->getWebp()->getLargeImageUrl(); ?>" alt="<?= $anim->getTitle(); ?>" title="<?= $anim->getTitle(); ?>" class="max-w-full h-auto">
+            </div>
             <div class="w-full grow flex flex-col space-y-2">
               <div class="flex p-[10px] border dark:bg-[#181818] dark:border-[#272727]">
                 <div class="max-w-fit text-center">
@@ -39,8 +21,8 @@
                     <span class="text-lg">Members <strong><?= number_format($anim->getMembers()) ?></strong></span>
                   </div>
                   <div class="flex space-x-2 text-xs ml-5 mt-auto">
-                    <?php if (!empty($anim->getPremiered())) : ?>
-                      <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/anime/season/1995/fall"><?= $anim->getPremiered(); ?></a></span>
+                    <?php if (!is_null($anim->getPremiered())) : ?>
+                      <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/anime/season/<?= $season->getSeasonYear() ?>/<?= $season->getSeasonName() ?>"><?= $anim->getPremiered(); ?></a></span>
                       <span class="h-full w-0.5 bg-[#252525] mx-5"></span>
                     <?php endif; ?>
                     <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/topanime.php?type=<?= $anim->getType(); ?>"><?= $anim->getType(); ?></a></span>

@@ -1,10 +1,12 @@
 <?php
 
+use Jikan\Helper\Constants;
 use Jikan\MyAnimeList\MalClient;
 use Jikan\Request\Anime\AnimeRequest;
+use Jikan\Request\Seasonal\SeasonalRequest;
 
 require __DIR__ . '../../../vendor/autoload.php';
-require '../../utils/redirect.php';
+require_once '../../utils/redirectAnime.php';
 
 
 if (isset($_GET['mal'])) {
@@ -19,6 +21,17 @@ $jikan = new MalClient();
 $anim = $jikan->getAnime(
   new AnimeRequest($id)
 );
+
+if (!is_null($anim->getPremiered())) {
+  $seasonNm = mb_strtolower(explode(' ', $anim->getPremiered())[0]);
+  $seasonYr = intval(explode(' ', $anim->getPremiered())[1]);
+  $season = $jikan->getSeasonal(
+    new SeasonalRequest(
+      $seasonYr,
+      Constants::SEASONS[array_search($seasonNm, Constants::SEASONS)]
+    )
+  );
+}
 $active = 'home';
 
 $v = isset($_GET['v']) ? $_GET['v'] : '';
