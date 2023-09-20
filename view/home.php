@@ -32,12 +32,12 @@ $active = 'home';
 
 <main>
   <div class="flex flex-col container p-10 items-center md:flex-row w-full mt-3">
-    <section class="max-w-7xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5">
+    <section class="max-w-7xl mx-auto">
       <div class="relative" id="cc">
         <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2"><?= $seasonNow; ?></h4>
-        <div class="grid grid-cols-1 gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-7 max-h-[27rem] overflow-hidden" id="seasonContent">
+        <div class="grid grid-cols-1 gap-6 lg:gap-y-8 sm:grid-cols-2 lg:grid-cols-7 max-h-[27rem] overflow-hidden" id="seasonContent">
           <?php foreach (array_slice($season->getAnime(), 0, 19) as $seasonal) : ?>
-            <a href="http://ev.jikan.eva/view/anime/anime.php?mal=<?= $seasonal->getMalId(); ?>" class="group flex w-[160px] h-[220px] flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-gray-900 relative">
+            <a href="http://ev.jikan.eva/view/anime/?mal=<?= $seasonal->getMalId(); ?>" class="group flex w-[160px] h-[220px] flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-gray-900 relative">
               <img class="group-hover:scale-105 transition-transform object-cover w-full h-full bg-gray-900" src="<?= $seasonal->getImages()->getWebp()->getLargeImageUrl() ?>" alt="">
               <p class="absolute bottom-2 left-2 font-normal z-10 text-gray-700 dark:text-gray-200 text-sm"><?= $seasonal->getTitle(); ?></p>
               <div class="bg-gradient-to-t absolute inset-0 from-black/90"></div>
@@ -69,7 +69,7 @@ $active = 'home';
             <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">Top Upcoming Anime</h4>
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 h-full">
               <?php foreach (array_slice($topUpcoming->getResults(), 0, 5) as $index => $top) : ?>
-                <a href="http://ev.jikan.eva/view/anime/anime.php?mal=<?= $top->getMalId(); ?>" class="group flex max-w-full h-auto flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#202020] relative">
+                <a href="http://ev.jikan.eva/view/anime/?mal=<?= $top->getMalId(); ?>" class="group flex max-w-full h-auto flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#202020] relative">
                   <span class="bg-indigo-100 text-indigo-800 text-sm font-medium absolute right-3 top-3 z-10 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-indigo-400 border border-indigo-400">#<?= $index + 1 ?></span>
                   <img class="group-hover:scale-105 transition-transform object-cover w-full h-full bg-gray-900" src="<?= $top->getImages()->getWebp()->getLargeImageUrl() ?>" alt="">
                   <p class="absolute bottom-2 left-2 font-normal z-10 text-gray-700 dark:text-gray-200 text-sm"><?= $top->getTitle(); ?></p>
@@ -84,7 +84,7 @@ $active = 'home';
             <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">Top Airing Anime</h4>
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 ">
               <?php foreach (array_slice($topAiring->getResults(), 0, 5) as $index => $top) : ?>
-                <a href="http://ev.jikan.eva/view/anime/anime.php?mal=<?= $top->getMalId(); ?>" class="group flex max-w-full h-auto flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#202020] relative">
+                <a href="http://ev.jikan.eva/view/anime/?mal=<?= $top->getMalId(); ?>" class="group flex max-w-full h-auto flex-col items-center overflow-hidden rounded-lg shadow hover:bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#202020] relative">
                   <span class="bg-indigo-100 text-indigo-800 text-sm font-medium absolute right-3 top-3 z-10 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-indigo-400 border border-indigo-400">#<?= $index + 1 ?></span>
                   <img class="group-hover:scale-105 transition-transform object-cover w-full h-full bg-gray-900" src="<?= $top->getImages()->getWebp()->getLargeImageUrl() ?>" alt="">
                   <p class="absolute bottom-2 left-2 font-normal z-10 text-gray-700 dark:text-gray-200 text-sm"><?= $top->getTitle(); ?></p>

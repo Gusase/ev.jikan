@@ -13,7 +13,7 @@ $active = 'episodes' ?>
     <div class="grow flex flex-col w-full md:w-auto justify-between leading-normal self-start">
       <?php include_once '../../components/subnav.php' ?>
       <div>
-        <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">Episodes <span class="text-sm text-gray-300">(<?= count($episodes->getResults()) ?>/unkwnown)</span></h4>
+        <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">Episodes <span class="text-sm text-gray-300 font-medium">(<?= (!empty($episodes->getResults())) ? count($episodes->getResults()) : '0' ?>/<?= (!empty($episodes->getResults())) ? count($episodes->getResults()) : 'Unknown'?>)</span></h4>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <?php if (count($episodes->getResults()) > 0) : ?>

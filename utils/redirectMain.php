@@ -11,8 +11,8 @@ function redirect($url): array
       break;
     default:
       return [
-        'title' => 'Home',
-        'page' => 'view/top.php'
+        'title' => 'Jikan',
+        'page' => 'view/home.php'
       ];
       break;
   }

@@ -43,17 +43,16 @@ include 'components/nav.php'
     <!-- Carousel wrapper -->
     <div class="relative overflow-hidden py-52 px-16">
       <!-- Item 1 -->
-      <?php foreach ($topAnime->getResults() as $index => $top) : ?>
+      <?php foreach (array_slice($topAnime->getResults(),0,5) as $top) : ?>
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <a href="view/anime/anime.php?mal=<?= $top->getMalId(); ?>" class="group">
-            <img src="<?= $top->getImages()->getWebp()->getLargeImageUrl() ?>" class="bg-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            <div class="bg-gradient-to-t dark:from-[#121212]/70 w-full h-full absolute top-0 left-0 z-10"></div>
+          <a href="view/anime/?mal=<?= $top->getMalId(); ?>" class="group">
+            <img src="<?= $top->getImages()->getWebp()->getLargeImageUrl() ?>" class="bg-gray-900 bg-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="bg-gradient-to-t dark:from-[#121212]/75 w-full h-full absolute top-0 left-0 z-10"></div>
             <h1 class="text-5xl font-bold dark:text-white absolute bottom-14 group-hover:underline decoration-2 decoration-blue-600 left-14 md:left-16 z-20 2xl:left-32">
               <?= $top->getTitle() ?>
             </h1>
           </a>
         </div>
-        <?php if ($index == 5) break ?>
       <?php endforeach; ?>
     </div>
     <!-- Slider controls -->

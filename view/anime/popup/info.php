@@ -18,115 +18,151 @@
       <!-- Modal body -->
       <div class="p-6 space-y-9">
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Type</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getType(); ?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Type</h4>
+          <a href="https://myanimelist.net/topanime.php?type=<?= mb_strtolower($anim->getType()) ?>" class="hover:underline hover:underline-offset-2">
+            <?= $anim->getType(); ?>
+          </a>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Episodes</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getEpisodes() ?? 'N/A'?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Episodes</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getEpisodes() ?? 'N/A' ?>
+          </p>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Status</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getStatus() ?? 'N/A'?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Status</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getStatus() ?? 'N/A' ?>
+          </p>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Aired</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getAired() ?? 'N/A'?>
-            </p>
-          </div>
-        <div class="mb-3">
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Aired</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getAired() ?? 'N/A' ?>
+          </p>
+        </div>
+        <?php if ($anim->getType() != 'Movie') : ?>
+          <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Premiered</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getPremiered() ?? 'N/A'?>
+              <?= $anim->getPremiered() ?? 'N/A' ?>
             </p>
           </div>
-        <div class="mb-3">
+          <div class="mb-3">
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Broadcast</h4>
             <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getBroadcast() ?? 'N/A'?>
+              <?= $anim->getBroadcast() ?? 'N/A' ?>
             </p>
           </div>
+        <?php endif; ?>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Producers</h4>
-            <?php foreach($anim->getProducers() as $index => $producer) :?>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Producers</h4>
+          <?php if (!empty($anim->getProducers())) : ?>
+            <?php foreach ($anim->getProducers() as $index => $producer) : ?>
               <span class="hover:underline hover:underline-offset-2">
                 <a href="<?= $producer->getUrl(); ?>">
                   <?= $producer->getName(); ?>
                 </a>
               </span>
 
-              <?php if($index < count($anim->getProducers()) - 1): ?>
-              ,
+              <?php if ($index < count($anim->getProducers()) - 1) : ?>
+                ,
               <?php endif; ?>
             <?php endforeach; ?>
-          </div>
+          <?php else : ?>
+            <span>
+              None found, <a href="" class="underline decoration-sky-500/60 underline-offset-4 hover:decoration-blue-600 hover:decoration-2">add some</a>
+            </span>
+          <?php endif; ?>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Studios</h4>
-            <?php foreach($anim->getStudios() as $index => $studio) :?>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Licensors</h4>
+          <?php if (!empty($anim->getLicensors())) : ?>
+            <?php foreach ($anim->getLicensors() as $index => $liecensor) : ?>
+              <span class="hover:underline hover:underline-offset-2">
+                <a href="<?= $liecensor->getUrl(); ?>">
+                  <?= $liecensor->getName(); ?>
+                </a>
+              </span>
+
+              <?php if ($index < count($anim->getLicensors()) - 1) : ?>
+                ,
+              <?php endif; ?>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <span>
+              None found, <a href="" class="underline decoration-sky-500/60 underline-offset-4 hover:decoration-blue-600 hover:decoration-2">add some</a>
+            </span>
+          <?php endif; ?>
+        </div>
+        <div class="mb-3">
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Studios</h4>
+          <?php if (!empty($anim->getStudios())) : ?>
+            <?php foreach ($anim->getStudios() as $index => $studio) : ?>
               <span class="hover:underline hover:underline-offset-2">
                 <a href="<?= $studio->getUrl(); ?>">
                   <?= $studio->getName(); ?>
                 </a>
               </span>
 
-              <?php if($index < count($anim->getStudios()) - 1): ?>
-              ,
+              <?php if ($index < count($anim->getStudios()) - 1) : ?>
+                ,
               <?php endif; ?>
             <?php endforeach; ?>
-          </div>
+          <?php else : ?>
+            <span>
+              None found, <a href="" class="underline decoration-sky-500/60 underline-offset-4 hover:decoration-blue-600 hover:decoration-2">add some</a>
+            </span>
+          <?php endif; ?>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Source</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getSource() ?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Source</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getSource() ?>
+          </p>
+        </div>
         <div class="mb-3">
+          <?php if (!empty($anim->getThemes())) : ?>
             <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Themes</h4>
-            <?php foreach($anim->getThemes() as $index => $theme) :?>
+            <?php foreach ($anim->getThemes() as $index => $theme) : ?>
               <span class="hover:underline hover:underline-offset-2">
                 <a href="<?= $theme->getUrl(); ?>">
                   <?= $theme->getName(); ?>
                 </a>
               </span>
 
-              <?php if($index < count($anim->getThemes()) - 1): ?>
-              ,
+              <?php if ($index < count($anim->getThemes()) - 1) : ?>
+                ,
               <?php endif; ?>
             <?php endforeach; ?>
-          </div>
+          <?php endif; ?>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Genres</h4>
-            <?php foreach($anim->getGenres() as $index => $genre) :?>
-              <span class="hover:underline hover:underline-offset-2">
-                <a href="<?= $genre->getUrl(); ?>">
-                  <?= $genre->getName(); ?>
-                </a>
-              </span>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Genres</h4>
+          <?php foreach ($anim->getGenres() as $index => $genre) : ?>
+            <span class="hover:underline hover:underline-offset-2">
+              <a href="<?= $genre->getUrl(); ?>">
+                <?= $genre->getName(); ?>
+              </a>
+            </span>
 
-              <?php if($index < count($anim->getGenres()) - 1): ?>
+            <?php if ($index < count($anim->getGenres()) - 1) : ?>
               ,
-              <?php endif; ?>
-            <?php endforeach; ?>
-          </div>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Duration</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getDuration() ?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Duration</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getDuration() ?>
+          </p>
+        </div>
         <div class="mb-3">
-            <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Rating</h4>
-            <p class="text-gray-500 dark:text-gray-400">
-              <?= $anim->getRating() ?>
-            </p>
-          </div>
+          <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Rating</h4>
+          <p class="text-gray-500 dark:text-gray-400">
+            <?= $anim->getRating() ?>
+          </p>
+        </div>
       </div>
     </div>
   </div>

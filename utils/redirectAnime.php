@@ -32,6 +32,24 @@ function redirect(string $url): array
         'title' => ' - Pictures'
       ];
       break;
+    case 'reviews':
+      return [
+        'page' => 'reviews.php',
+        'title' => ' - Reviews'
+      ];
+      break;
+    case 'news':
+      return [
+        'page' => 'news.php',
+        'title' => ' - News'
+      ];
+      break;
+    case 'userrecs':
+      return [
+        'page' => 'recomend.php',
+        'title' => ' - Recommendations '
+      ];
+      break;
     default:
       return [
         'page' => 'details.php',

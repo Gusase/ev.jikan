@@ -3,9 +3,36 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title><?= (isset($page) && !empty($anim)) ? $anim->getTitle() . $page['title'] : $page['title'] ?></title>
+  <!-- <title><?= (isset($page) && !empty($anim)) ? $anim->getTitles()[0]->getTitle() . $page['title'] : $page['title'] ?></title> -->
+  <title>
+    <?php
+    $en = null;
+    $enn = null;
+    if (isset($page) && !empty($anim)) {
+      foreach ($anim->getTitles() as $title) {
+        if ($title->getType() == 'English') {
+          $en = $title->getTitle();
+          $enn = " ($en)";
+          break;
+        }else{
+          $en = '';
+        }
+        
+      }
+      if ($en === $anim->getTitles()[0]->getTitle() || strlen($en) > 31) {
+        $en = null;
+        $enn = null;
+      }
+    }
+    echo (isset($page) && !empty($anim) || !is_null($en))
+      ? $anim->getTitles()[0]->getTitle() . $enn . $page['title'] . ' - Jikan'
+      : $page['title'];
+    ?>
+  </title>
   <style>
     @keyframes fade {
       from {
@@ -40,4 +67,3 @@
 </head>
 
 <body class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-[#121212] fd">
-  

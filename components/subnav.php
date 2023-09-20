@@ -21,6 +21,12 @@
     <li class="mr-2">
       <a href="?mal=<?= $anim->getMalId(); ?>&v=pics" class="inline-block p-2 <?= (isset($active) && $active == 'pics') ? 'text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-gray-100 dark:border-blue-500' : 'border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'; ?>">Pictures</a>
     </li>
+    <li class="mr-2">
+      <a href="?mal=<?= $anim->getMalId(); ?>&v=news" class="inline-block p-2 <?= (isset($active) && $active == 'news') ? 'text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-gray-100 dark:border-blue-500' : 'border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'; ?>">News</a>
+    </li>
+    <li class="mr-2">
+      <a href="?mal=<?= $anim->getMalId(); ?>&v=userrecs" class="inline-block p-2 <?= (isset($active) && $active == 'userrecs') ? 'text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-gray-100 dark:border-blue-500' : 'border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'; ?>">Recommendations</a>
+    </li>
   </ul>
 </div>
 
@@ -31,22 +37,19 @@
         Top
       </span>
     </li>
-    <li>
+    <li class="inline-flex items-center before:content-['>'] before:mr-2 before:mb-px">
       <div class="flex items-center">
-        >
-        <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">Anime</span>
+        <a href="http://ev.jikan.eva/view/anime.php" class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2">Anime</a>
       </div>
     </li>
-    <li>
-      <div class="flex items-center">
-        >
-        <span class="ml-2 text-sm font-medium text-gray-500 dark:text-sky-50 w-10/12 dark:hover:underline hover:underline-offset-2 cursor-pointer truncate"><?= $anim->getTitle() ?></span>
+    <li class="inline-flex items-center before:content-['>'] before:mr-2 before:mb-px">
+      <div>
+        <span class="ml-2 text-sm leading-6 font-medium text-gray-500 dark:text-sky-50 w-10/12 dark:hover:underline hover:underline-offset-2 cursor-pointer"><?php echo (strlen($anim->getTitles()[0]->getTitle()) < 33) ? $anim->getTitle() : substr_replace($anim->getTitle(),'...',30) ?></span>
       </div>
     </li>
     <?php if(!empty($page['title'])) :?>
-    <li>
+    <li class="inline-flex items-center before:content-['>'] before:mr-2 before:mb-px">
       <div class="flex items-center">
-        >
         <span class="ml-2 text-sm font-medium dark:text-sky-50 dark:hover:underline hover:underline-offset-2"> <?= mb_substr($page['title'],2) ?> </span>
       </div>
     </li>

@@ -1,17 +1,9 @@
-<?php 
-
-use Jikan\Request\Anime\AnimeVideosRequest;
-
-$videos = $jikan->getAnimeVideos(
-  (new AnimeVideosRequest($id))
-);
-
-$active = 'videos'; ?>
+<?php $active = 'videos'; ?>
 
 
 <main>
   <div class="flex flex-col container p-10 items-center md:flex-row w-full mt-3">
-    <div class="grow flex flex-col w-full md:w-auto justify-between leading-normal self-start">
+    <div class="grow flex flex-col w-full md:w-auto leading-normal">
       <?php include_once '../../components/subnav.php' ?>
       <div>
         <h4 class="text-xl mb-3 font-bold capitalize dark:text-white my-2">episodes</h4>

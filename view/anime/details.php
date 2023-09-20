@@ -5,7 +5,9 @@
           <?php include_once '../../components/subnav.php' ?>
           <div class="flex space-x-3">
             <div class="w-[225px]">
-              <img src="<?= $anim->getImages()->getWebp()->getLargeImageUrl(); ?>" alt="<?= $anim->getTitle(); ?>" title="<?= $anim->getTitle(); ?>" class="max-w-full h-auto">
+              <a href="http://ev.jikan.eva/view/anime/?mal=<?= $anim->getMalId() ?>&v=pics">
+                <img src="<?= $anim->getImages()->getWebp()->getLargeImageUrl(); ?>" alt="Poster" title="<?= $anim->getTitle(); ?>" class="hover:brightness-105 max-w-full h-auto">
+              </a>
             </div>
             <div class="w-full grow flex flex-col space-y-2">
               <div class="flex p-[10px] border dark:bg-[#181818] dark:border-[#272727]">
@@ -22,7 +24,7 @@
                   </div>
                   <div class="flex space-x-2 text-xs ml-5 mt-auto">
                     <?php if (!is_null($anim->getPremiered())) : ?>
-                      <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/anime/season/<?= $season->getSeasonYear() ?>/<?= $season->getSeasonName() ?>"><?= $anim->getPremiered(); ?></a></span>
+                      <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/anime/season/<?= $season->getSeasonYear() ?>/<?= mb_strtolower($season->getSeasonName()) ?>"><?= $anim->getPremiered(); ?></a></span>
                       <span class="h-full w-0.5 bg-[#252525] mx-5"></span>
                     <?php endif; ?>
                     <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/topanime.php?type=<?= $anim->getType(); ?>"><?= $anim->getType(); ?></a></span>
@@ -50,18 +52,17 @@
               </div>
               <p class="inline-block text-[10px] text-red-500 dark:text-red-400">* Your list is public by default.</p>
             </div>
-            <?php if (!empty($anim->getTrailer()->getEmbedUrl())) : ?>
+            <?php if (!empty($videos->getPromos())) : ?>
               <div>
-                <a href="<?= $anim->getTrailer()->getEmbedUrl(); ?>" rel="gallery" class="h-[133px] w-[200px] group inline-flex items-end shadow-xl relative rounded hover:brightness-125 duration-150 bg-[url('<?= $anim->getTrailer()->getImages()->getSmallImageUrl(); ?>')] bg-cover bg-center inline-block bg-no-repeat">
+                <a href="<?= $videos->getPromos()[0]->getTrailer()->getEmbedUrl() ?>" rel="gallery" class="h-[133px] w-[200px] group inline-flex items-end shadow-xl relative rounded hover:brightness-125 duration-150 bg-[url('<?= $anim->getTrailer()->getImages()->getLargeImageUrl(); ?>')] bg-cover bg-center inline-block bg-no-repeat">
                   <div class="absolute inset-0 bg-gradient-to-t dark:from-black rounded">
                     <span class="h-full group-hover:scale-110 transition-scale grid place-items-center"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
                         <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z" />
                       </svg></span>
                   </div>
+                  <span class="text-sm z-20 pb-1 pl-1 dark:text-gray-300 text-gray-800"><?= $videos->getPromos()[0]->getTitle() ?></span>
                 </a>
-                <div class="flex justify-between items-center">
-                  <span class="dark:text-gray-300 text-gray-800">Trailer</span><small><a href="?mal=<?= $anim->getMalId(); ?>&v=videos" class="hover:underline hover:underline hover:underline-offset-2">More videos</a></small>
-                </div>
+                <small class="block text-right"><a href="?mal=<?= $anim->getMalId(); ?>&v=videos" class="hover:underline hover:underline hover:underline-offset-2">More videos</a></small>
               </div>
             <?php endif; ?>
           </div>
