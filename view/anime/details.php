@@ -27,7 +27,11 @@
                       <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/anime/season/<?= $season->getSeasonYear() ?>/<?= mb_strtolower($season->getSeasonName()) ?>"><?= $anim->getPremiered(); ?></a></span>
                       <span class="h-full w-0.5 bg-[#252525] mx-5"></span>
                     <?php endif; ?>
-                    <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/topanime.php?type=<?= $anim->getType(); ?>"><?= $anim->getType(); ?></a></span>
+                    <?php if(!empty($anim->getType())) :?>
+                      <span class="hover:underline hover:underline-offset-2 capitalize "><a href="https://myanimelist.net/topanime.php?type=<?= mb_strtolower($anim->getType()) ?>" class="hover:underline hover:underline-offset-2"><?= $anim->getType(); ?></a></span>
+                    <?php else: ?>
+                      <span>Unknown</span>
+                    <?php endif; ?>
                     <span class="h-full w-0.5 bg-[#252525] mx-5"></span>
                     <?php foreach ($anim->getStudios() as $index => $studio) : ?>
                       <span class="hover:underline hover:underline-offset-2">

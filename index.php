@@ -2,29 +2,7 @@
 session_start();
 
 require __DIR__ . '/vendor/autoload.php';
-require_once 'utils/redirectMain.php';
-
-use \Jikan\Helper\Constants;
-use Jikan\MyAnimeList\MalClient;
-use Jikan\Request\Top\TopAnimeRequest;
-
-$jikan = new MalClient();
-
-$topAnime = $jikan->getTopAnime(
-  (new TopAnimeRequest(
-    1,
-    Constants::TOP_AIRING
-  ))
-);
-// var_dump($topAnime);
-// foreach ($topAnime->getResults() as $top) {
-//   $topImg = $top->getImages()->getWebp()->getLargeImageUrl();
-//   echo "<img src='$topImg'>";
-//   echo $top->getTitle();
-// }
-
-// die;
-
+require_once __DIR__ . '/redirectMain.php';
 
 $v = isset($_GET['v']) ? $_GET['v'] : '';
 $page = redirect($v);

@@ -19,14 +19,18 @@
       <div class="p-6 space-y-9">
         <div class="mb-3">
           <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Type</h4>
-          <a href="https://myanimelist.net/topanime.php?type=<?= mb_strtolower($anim->getType()) ?>" class="hover:underline hover:underline-offset-2">
-            <?= $anim->getType(); ?>
-          </a>
+          <?php if (!empty($anim->getType())) : ?>
+            <a href="https://myanimelist.net/topanime.php?type=<?= mb_strtolower($anim->getType()) ?>" class="hover:underline hover:underline-offset-2">
+              <?= $anim->getType(); ?>
+            </a>
+          <?php else : ?>
+            <span>Unknown</span>
+          <?php endif; ?>
         </div>
         <div class="mb-3">
           <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Episodes</h4>
           <p class="text-gray-500 dark:text-gray-400">
-            <?= $anim->getEpisodes() ?? 'N/A' ?>
+            <?= $anim->getEpisodes() ?? ' Unknown' ?>
           </p>
         </div>
         <div class="mb-3">
@@ -160,7 +164,7 @@
         <div class="mb-3">
           <h4 class="text-xl font-semibold dark:text-white mb-2 before:content-['#']">&nbsp;Rating</h4>
           <p class="text-gray-500 dark:text-gray-400">
-            <?= $anim->getRating() ?>
+            <?= $anim->getRating() ?? 'None' ?>
           </p>
         </div>
       </div>
