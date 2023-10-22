@@ -1,4 +1,7 @@
 <?php
+/**
+ * ngurangin taun
+ */
 function subDate(int $year): string
 {
   return date("Y", strtotime("-{$year} year"));

@@ -9,7 +9,6 @@ if (isset($_GET['q'])) {
 }
 
 $jikan = new Jikan\MyAnimeList\MalClient();
-$anim = null;
 
 try {
 
@@ -17,13 +16,16 @@ try {
     throw new Exception("Must have at least 3 byte characters to search.");
   }
 
-  $anim = $jikan->getAnimeSearch(new \Jikan\Request\Search\AnimeSearchRequest($id));
+  if (strlen($id) > 100) {
+    throw new Exception('Your search text must be no more than 100 characters in length. (' . strlen($id) . '/100)');
+  }
 
-  var_dump(count($anim->getResults()));
+  $anim = $jikan->getAnimeSearch(new \Jikan\Request\Search\AnimeSearchRequest($id));
+  $coun = count($anim->getResults()) > 0 ? count($anim->getResults()) : null;
+
 } catch (\Throwable $e) {
   $err = $e->getMessage();
 }
-
 
 ?>
 
@@ -42,13 +44,17 @@ try {
 <div>
   <h4 class="text-xl mb-3 font-bold capitalize dark:text-white py-2 pl-1 sticky top-0 bg-[#121212]/85 backdrop-blur-sm z-10">Search Results</h4>
 
-  <?php if (!is_null($anim)) : ?>
-    <?php if (!empty($anim->getResults())) {
-      var_dump($anim->getResults());
-    }else{
-      echo 'No titles that matched your query were found.';
-    } ?>
-  <?php else : ?>
-    No titles that matched your query were found.
-  <?php endif; ?>
+  <div class="grid grid-cols-1 gap-5 lg:gap-y-8 sm:grid-cols-2 lg:grid-cols-6">
+    <?php if (!is_null($anim) && !is_null($coun)) :
+      foreach ($anim->getResults() as $result) :  ?>
+        <a href="http://ev.jikan.test/view/anime/?mal=<?= $result->getMalId(); ?>" class="w-full relative group overflow-hidden" title="<?= $result->getTitle() ?>">
+          <img class="group-hover:scale-105 transition-transform object-cover w-[422px] h-[266px] bg-gray-900" src="<?= $result->getImages()->getWebp()->getLargeImageUrl() ?>" alt="">
+          <p class="absolute bottom-2 left-1.5 font-normal z-10 text-gray-700 dark:text-gray-200 text-sm group-hover:underline group-hover:decoration-sky-500/60 underline-offset-4 group-hover:decoration-blue-600 group-hover:decoration-2"><?= $result->getTitle(); ?></p>
+          <div class="bg-gradient-to-t absolute inset-0 from-black/90"></div>
+        </a>
+      <?php endforeach;
+    else : ?>
+      <div class="col-span-5 text-sm text-gray-400">No titles that matched your query were found.</div>
+    <?php endif; ?>
+  </div>
 </div>

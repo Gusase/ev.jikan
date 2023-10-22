@@ -48,7 +48,7 @@ $types = [
 ];
 
 $page = [
-  'title' => 'Anime'
+  'title' => 'Search Anime'
 ]
 ?>
 
@@ -181,7 +181,7 @@ include '../components/nav.php'
           <a href="https://myanimelist.net/anime/producer" class="capitalize ml-auto text-sm underline decoration-sky-500/60 underline-offset-4 hover:decoration-blue-600 hover:decoration-2">view more</a>
         </div>
         <div class="grid grid-cols-1 gap-8 text-center lg:grid-cols-5">
-          <?php foreach (array_slice($producersArray, 0, 51) as $producerStudio) : ?>
+          <?php foreach (array_slice($producersArray, 0, 50) as $producerStudio) : ?>
             <a href="<?= $producerStudio->getUrl(); ?>" class="self-start">
               <div class="flex flex-col items-center justify-center p-[1.77rem] cursor-pointer text-center bg-white border-b border-gray-200 rounded dark:bg-[#181818] dark:border-gray-800 dark:hover:bg-[#202020] hover:scale-[1.05] duration-100">
                 <dl class="mx-auto flex max-w-xs flex-col gap-y-2">

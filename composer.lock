@@ -65,16 +65,16 @@
         },
         {
             "name": "jikan-me/jikan",
-            "version": "v4.0.6",
+            "version": "v4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jikan-me/jikan.git",
-                "reference": "60f5d0d1506c33371c8b627996b27e6fcba28300"
+                "reference": "40d797d1d7c67bc59062caf935be6c1d7444d1a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jikan-me/jikan/zipball/60f5d0d1506c33371c8b627996b27e6fcba28300",
-                "reference": "60f5d0d1506c33371c8b627996b27e6fcba28300",
+                "url": "https://api.github.com/repos/jikan-me/jikan/zipball/40d797d1d7c67bc59062caf935be6c1d7444d1a5",
+                "reference": "40d797d1d7c67bc59062caf935be6c1d7444d1a5",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
             "description": "Jikan is an unofficial MyAnimeList API",
             "support": {
                 "issues": "https://github.com/jikan-me/jikan/issues",
-                "source": "https://github.com/jikan-me/jikan/tree/v4.0.6"
+                "source": "https://github.com/jikan-me/jikan/tree/v4.0.7"
             },
             "funding": [
                 {
@@ -121,7 +121,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-08-20T14:39:04+00:00"
+            "time": "2023-10-17T14:55:25+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -562,16 +562,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v6.3.2",
+            "version": "v6.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "15f9f4bad62bfcbe48b5dedd866f04a08fc7ff00"
+                "reference": "213e564da4cbf61acc9728d97e666bcdb868c10d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/15f9f4bad62bfcbe48b5dedd866f04a08fc7ff00",
-                "reference": "15f9f4bad62bfcbe48b5dedd866f04a08fc7ff00",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/213e564da4cbf61acc9728d97e666bcdb868c10d",
+                "reference": "213e564da4cbf61acc9728d97e666bcdb868c10d",
                 "shasum": ""
             },
             "require": {
@@ -634,7 +634,7 @@
                 "http"
             ],
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v6.3.2"
+                "source": "https://github.com/symfony/http-client/tree/v6.3.5"
             },
             "funding": [
                 {
@@ -650,7 +650,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-05T08:41:27+00:00"
+            "time": "2023-09-29T15:57:12+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
@@ -732,16 +732,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v6.3.3",
+            "version": "v6.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "9a0cbd52baa5ba5a5b1f0cacc59466f194730f98"
+                "reference": "d5179eedf1cb2946dbd760475ebf05c251ef6a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/9a0cbd52baa5ba5a5b1f0cacc59466f194730f98",
-                "reference": "9a0cbd52baa5ba5a5b1f0cacc59466f194730f98",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/d5179eedf1cb2946dbd760475ebf05c251ef6a6e",
+                "reference": "d5179eedf1cb2946dbd760475ebf05c251ef6a6e",
                 "shasum": ""
             },
             "require": {
@@ -796,7 +796,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v6.3.3"
+                "source": "https://github.com/symfony/mime/tree/v6.3.5"
             },
             "funding": [
                 {
@@ -812,7 +812,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-31T07:08:24+00:00"
+            "time": "2023-09-29T06:59:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
